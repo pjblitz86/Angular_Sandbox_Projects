@@ -1,3 +1,35 @@
-<p>
-  create-employee works!
-</p>
+<div class="card bg-light ml-4" style="max-width: 640px;">
+  <div class="card-header bg-primary text-white">
+    Create Employee
+  </div>
+
+  <div class="card-body">
+    <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fullName"
+          name="fullName"
+          [(ngModel)]="fullName"
+          placeholder="Enter employee name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    {{ employeeForm.value | json }}
+  </div>
+</div>
