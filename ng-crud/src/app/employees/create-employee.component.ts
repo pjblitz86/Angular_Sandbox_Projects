@@ -9,6 +9,9 @@ import { NgForm } from "@angular/forms";
 export class CreateEmployeeComponent implements OnInit {
   fullName: string;
   email: string;
+  gender: string;
+  phoneNumber: number;
+  contactPreference: string;
 
   constructor() {}
 
