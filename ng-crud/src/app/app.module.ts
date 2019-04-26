@@ -1,3 +1,4 @@
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -15,7 +16,12 @@ import { NavComponent } from "./layout/nav/nav.component";
     CreateEmployeeComponent,
     NavComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BsDatepickerModule.forRoot()
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

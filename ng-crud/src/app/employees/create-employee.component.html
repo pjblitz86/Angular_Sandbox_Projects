@@ -19,7 +19,7 @@
       </div>
       <!-- EMAIL -->
       <div class="form-group">
-        <label for="email">Email address</label>
+        <label for="email">Email Address</label>
         <input
           type="email"
           class="form-control"
@@ -129,6 +129,18 @@
             </option>
           </select>
         </div>
+      </div>
+      <!-- DATE OF BIRTH -->
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input
+          type="text"
+          bsDatepicker
+          class="form-control"
+          id="dateOfBirth"
+          name="dateOfBirth"
+          [(ngModel)]="dateOfBirth"
+        />
       </div>
 
       <button type="submit" class="btn btn-primary">Save</button>

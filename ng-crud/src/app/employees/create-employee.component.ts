@@ -15,6 +15,7 @@ export class CreateEmployeeComponent implements OnInit {
   contactPreference: string;
   isActive = true;
   department = "3";
+  dateOfBirth;
   departments: Department[] = [
     { id: 1, name: "Help Desk" },
     { id: 2, name: "HR" },
