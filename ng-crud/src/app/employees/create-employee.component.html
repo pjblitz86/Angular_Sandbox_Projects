@@ -111,6 +111,23 @@
           <label class="form-check-label" for="male">Is Active</label>
         </div>
       </div>
+      <!-- DEPARTMENT DROPDOWN LIST -->
+      <div class="form-group">
+        <div class="dropdown">
+          <label for="department">Department</label>
+          <select
+            id="department"
+            name="department"
+            [(ngModel)]="department"
+            class="form-control"
+          >
+            <option value="1">Help Desk</option>
+            <option value="2">HR</option>
+            <option value="3">IT</option>
+            <option value="4">Paroll</option>
+          </select>
+        </div>
+      </div>
 
       <button type="submit" class="btn btn-primary">Save</button>
     </form>

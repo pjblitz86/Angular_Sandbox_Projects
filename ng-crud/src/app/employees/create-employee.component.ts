@@ -13,12 +13,13 @@ export class CreateEmployeeComponent implements OnInit {
   phoneNumber: number;
   contactPreference: string;
   isActive = true;
+  department = "3";
 
   constructor() {}
 
   ngOnInit() {}
 
   saveEmployee(empForm: NgForm): void {
-    console.log(empForm);
+    console.log(empForm.value);
   }
 }
