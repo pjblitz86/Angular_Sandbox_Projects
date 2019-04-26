@@ -1,6 +1,7 @@
 import { Department } from "./../models/department.model";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 
 @Component({
   selector: "app-create-employee",
@@ -23,8 +24,18 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 4, name: "Payroll" },
     { id: 5, name: "Admin" }
   ];
+  datePickerConfig: Partial<BsDatepickerConfig>;
 
-  constructor() {}
+  constructor() {
+    this.datePickerConfig = Object.assign(
+      {},
+      {
+        containerClass: "theme-dark-blue",
+        minDate: new Date(1900, 1, 1),
+        dateInputFormat: "DD/MM/YYYY"
+      }
+    );
+  }
 
   ngOnInit() {}
 
