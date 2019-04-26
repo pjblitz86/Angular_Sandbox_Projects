@@ -146,6 +146,40 @@
           />
         </div>
       </div>
+      <!-- PHOTO PATH - LATER WILL MAKE IMAGE UPLOAD -->
+      <div class="form-group">
+        <label for="photoPath">Photo Path</label>
+        <input
+          type="text"
+          class="form-control"
+          id="photoPath"
+          name="photoPath"
+          [(ngModel)]="photoPath"
+          placeholder="Enter your photo path"
+        />
+      </div>
+
+      <!-- IMAGE SHOW/HIDE BUTTON -->
+      <div class="form-group">
+        <button
+          type="button"
+          (click)="togglePhotoPreview()"
+          class="btn btn-primary"
+        >
+          {{ previewPhoto ? "Hide" : "Show" }} Preview
+        </button>
+      </div>
+
+      <!-- IMAGE FROM PHOTOPATH -->
+      <div class="form-group">
+        <img
+          [src]="photoPath"
+          alt="no image found"
+          height="200"
+          width="200"
+          *ngIf="previewPhoto"
+        />
+      </div>
 
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
