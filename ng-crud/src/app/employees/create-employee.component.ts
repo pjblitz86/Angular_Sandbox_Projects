@@ -9,15 +9,16 @@ import { NgForm } from "@angular/forms";
 export class CreateEmployeeComponent implements OnInit {
   fullName: string;
   email: string;
-  gender: string;
+  gender = "male";
   phoneNumber: number;
   contactPreference: string;
+  isActive = true;
 
   constructor() {}
 
   ngOnInit() {}
 
   saveEmployee(empForm: NgForm): void {
-    console.log(empForm.value);
+    console.log(empForm);
   }
 }
