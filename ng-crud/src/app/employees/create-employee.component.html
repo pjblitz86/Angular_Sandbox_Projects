@@ -46,7 +46,7 @@
         <label for="email">Email Address</label>
         <input
           type="email"
-          required
+          [required]="contactPreferenceControl.value == 'email'"
           email
           class="form-control"
           id="email"
@@ -80,7 +80,7 @@
         <label for="phoneNumber">Phone number</label>
         <input
           type="text"
-          required
+          [required]="contactPreferenceControl.value == 'phone'"
           class="form-control"
           id="phoneNumber"
           name="phoneNumber"
@@ -114,6 +114,7 @@
             id="emailContact"
             value="email"
             [(ngModel)]="employee.contactPreference"
+            #contactPreferenceControl="ngModel"
           />
           <label class="form-check-label" for="emailContact">Email</label>
         </div>
@@ -125,6 +126,7 @@
             id="phoneContact"
             value="phone"
             [(ngModel)]="employee.contactPreference"
+            #contactPreferenceControl="ngModel"
           />
           <label class="form-check-label" for="phoneContact">Phone</label>
         </div>
