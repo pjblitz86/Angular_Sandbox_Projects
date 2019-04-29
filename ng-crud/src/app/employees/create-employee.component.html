@@ -42,6 +42,7 @@
         <input
           type="email"
           required
+          email
           class="form-control"
           id="email"
           name="email"
@@ -58,6 +59,9 @@
         >
           <div *ngIf="emailControl?.errors.required">
             Please enter employee email!
+          </div>
+          <div *ngIf="emailControl?.errors.email">
+            Please enter a valid email!
           </div>
         </div>
       </div>
