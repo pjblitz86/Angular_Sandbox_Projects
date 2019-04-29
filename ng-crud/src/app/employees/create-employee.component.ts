@@ -10,13 +10,6 @@ import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
   styleUrls: ["./create-employee.component.css"]
 })
 export class CreateEmployeeComponent implements OnInit {
-  fullName: string;
-  email: string;
-  gender = "male";
-  phoneNumber: number;
-  isActive = true;
-  department = "3";
-  dateOfBirth;
   departments: Department[] = [
     { id: 1, name: "Help Desk" },
     { id: 2, name: "HR" },
@@ -37,7 +30,6 @@ export class CreateEmployeeComponent implements OnInit {
     photoPath: null
   };
   datePickerConfig: Partial<BsDatepickerConfig>;
-  photoPath;
   previewPhoto = false;
 
   constructor() {

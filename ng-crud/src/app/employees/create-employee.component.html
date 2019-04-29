@@ -20,14 +20,19 @@
           id="fullName"
           name="fullName"
           [ngClass]="{
-            'is-invalid': employeeForm.submitted && fullNameControl.invalid
+            'is-invalid':
+              (employeeForm.submitted && fullNameControl.invalid) ||
+              fullNameControl.touched
           }"
           [(ngModel)]="employee.name"
           placeholder="Enter employee name"
           #fullNameControl="ngModel"
         />
         <div
-          *ngIf="employeeForm.submitted && fullNameControl.invalid"
+          *ngIf="
+            (employeeForm.submitted && fullNameControl.invalid) ||
+            fullNameControl.touched
+          "
           class="invalid-feedback"
         >
           <div *ngIf="fullNameControl?.errors.required">
@@ -48,13 +53,18 @@
           name="email"
           [(ngModel)]="employee.email"
           [ngClass]="{
-            'is-invalid': employeeForm.submitted && emailControl.invalid
+            'is-invalid':
+              (employeeForm.submitted && emailControl.invalid) ||
+              emailControl.touched
           }"
           placeholder="Enter email"
           #emailControl="ngModel"
         />
         <div
-          *ngIf="employeeForm.submitted && emailControl.invalid"
+          *ngIf="
+            (employeeForm.submitted && emailControl.invalid) ||
+            emailControl.touched
+          "
           class="invalid-feedback"
         >
           <div *ngIf="emailControl?.errors.required">
