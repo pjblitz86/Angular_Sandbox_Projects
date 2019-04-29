@@ -35,7 +35,7 @@
           "
           class="invalid-feedback"
         >
-          <div *ngIf="fullNameControl?.errors.required">
+          <div *ngIf="!!fullNameControl.errors?.required">
             Please enter full employee name!
           </div>
         </div>
@@ -67,10 +67,10 @@
           "
           class="invalid-feedback"
         >
-          <div *ngIf="emailControl?.errors.required">
+          <div *ngIf="!!emailControl.errors?.required">
             Please enter employee email!
           </div>
-          <div *ngIf="emailControl?.errors.email">
+          <div *ngIf="!!emailControl.errors?.email">
             Please enter a valid email!
           </div>
         </div>
@@ -95,7 +95,7 @@
           *ngIf="employeeForm.submitted && phoneNumberControl.invalid"
           class="invalid-feedback"
         >
-          <div *ngIf="phoneNumberControl?.errors.required">
+          <div *ngIf="!!phoneNumberControl.errors?.required">
             Please enter employee phone number!
           </div>
         </div>
@@ -214,7 +214,7 @@
             *ngIf="employeeForm.submitted && dateOfBirthControl.invalid"
             class="invalid-feedback"
           >
-            <div *ngIf="dateOfBirthControl?.errors.required">
+            <div *ngIf="!!dateOfBirthControl.errors?.required">
               Please enter employee date of birth!
             </div>
           </div>
@@ -247,7 +247,7 @@
       <!-- IMAGE FROM PHOTOPATH -->
       <div class="form-group">
         <img
-          [src]="photoPath"
+          [src]="employee.photoPath"
           alt="no image found"
           height="200"
           width="200"
