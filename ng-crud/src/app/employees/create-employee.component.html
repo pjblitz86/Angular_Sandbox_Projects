@@ -4,43 +4,87 @@
   </div>
 
   <div class="card-body">
-    <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+    <form
+      class="needs-validation"
+      novalidate
+      #employeeForm="ngForm"
+      (ngSubmit)="employeeForm.valid && saveEmployee(employeeForm)"
+    >
       <!-- FULL NAME -->
       <div class="form-group">
         <label for="fullName">Full Name</label>
         <input
           type="text"
+          required
           class="form-control"
           id="fullName"
           name="fullName"
+          [ngClass]="{
+            'is-invalid': employeeForm.submitted && fullNameControl.invalid
+          }"
           [(ngModel)]="fullName"
           placeholder="Enter employee name"
+          #fullNameControl="ngModel"
         />
+        <div
+          *ngIf="employeeForm.submitted && fullNameControl.invalid"
+          class="invalid-feedback"
+        >
+          <div *ngIf="fullNameControl?.errors.required">
+            Please enter full employee name!
+          </div>
+        </div>
       </div>
+
       <!-- EMAIL -->
       <div class="form-group">
         <label for="email">Email Address</label>
         <input
           type="email"
+          required
           class="form-control"
           id="email"
           name="email"
           [(ngModel)]="email"
-          aria-describedby="emailHelp"
+          [ngClass]="{
+            'is-invalid': employeeForm.submitted && emailControl.invalid
+          }"
           placeholder="Enter email"
+          #emailControl="ngModel"
         />
+        <div
+          *ngIf="employeeForm.submitted && emailControl.invalid"
+          class="invalid-feedback"
+        >
+          <div *ngIf="emailControl?.errors.required">
+            Please enter employee email!
+          </div>
+        </div>
       </div>
       <!-- PHONE -->
       <div class="form-group">
         <label for="phoneNumber">Phone number</label>
         <input
           type="text"
+          required
           class="form-control"
           id="phoneNumber"
           name="phoneNumber"
           [(ngModel)]="phoneNumber"
+          [ngClass]="{
+            'is-invalid': employeeForm.submitted && phoneNumberControl.invalid
+          }"
           placeholder="Enter phone number"
+          #phoneNumberControl="ngModel"
         />
+        <div
+          *ngIf="employeeForm.submitted && phoneNumberControl.invalid"
+          class="invalid-feedback"
+        >
+          <div *ngIf="phoneNumberControl?.errors.required">
+            Please enter employee phone number!
+          </div>
+        </div>
       </div>
 
       <!-- CONTACT PREFERENCE RADIO BUTTONS -->
@@ -52,23 +96,23 @@
           <input
             class="form-check-input"
             type="radio"
-            name="contact"
-            id="email"
+            name="contactPreference"
+            id="emailContact"
             value="email"
             [(ngModel)]="contactPreference"
           />
-          <label class="form-check-label" for="male">Email</label>
+          <label class="form-check-label" for="emailContact">Email</label>
         </div>
         <div class="form-check form-check-inline">
           <input
             class="form-check-input"
             type="radio"
-            name="contact"
-            id="phone"
+            name="contactPreference"
+            id="phoneContact"
             value="phone"
             [(ngModel)]="contactPreference"
           />
-          <label class="form-check-label" for="female">Phone</label>
+          <label class="form-check-label" for="phoneContact">Phone</label>
         </div>
       </div>
 
@@ -82,6 +126,8 @@
             class="form-check-input"
             type="radio"
             name="gender"
+            required
+            id="male"
             value="male"
             [(ngModel)]="gender"
           />
@@ -92,6 +138,7 @@
             class="form-check-input"
             type="radio"
             name="gender"
+            id="female"
             value="female"
             [(ngModel)]="gender"
           />
@@ -132,10 +179,11 @@
       </div>
       <!-- DATE OF BIRTH -->
       <div class="row">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
           <label for="dateOfBirth">Date of Birth</label>
           <input
             type="text"
+            required
             bsDatepicker
             [bsConfig]="datePickerConfig"
             placement="right"
@@ -143,7 +191,19 @@
             id="dateOfBirth"
             name="dateOfBirth"
             [(ngModel)]="dateOfBirth"
+            [ngClass]="{
+              'is-invalid': employeeForm.submitted && dateOfBirthControl.invalid
+            }"
+            #dateOfBirthControl="ngModel"
           />
+          <div
+            *ngIf="employeeForm.submitted && dateOfBirthControl.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="dateOfBirthControl?.errors.required">
+              Please enter employee date of birth!
+            </div>
+          </div>
         </div>
       </div>
       <!-- PHOTO PATH - LATER WILL MAKE IMAGE UPLOAD -->

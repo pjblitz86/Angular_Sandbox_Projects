@@ -13,7 +13,7 @@ export class CreateEmployeeComponent implements OnInit {
   email: string;
   gender = "male";
   phoneNumber: number;
-  contactPreference: string;
+  contactPreference = "email";
   isActive = true;
   department = "3";
   dateOfBirth;
