@@ -1,3 +1,4 @@
+import { Employee } from "./../models/employee.model";
 import { Department } from "./../models/department.model";
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
@@ -13,7 +14,6 @@ export class CreateEmployeeComponent implements OnInit {
   email: string;
   gender = "male";
   phoneNumber: number;
-  contactPreference = "email";
   isActive = true;
   department = "3";
   dateOfBirth;
@@ -24,6 +24,18 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 4, name: "Payroll" },
     { id: 5, name: "Admin" }
   ];
+  employee: Employee = {
+    id: null,
+    name: null,
+    gender: "male",
+    email: null,
+    phoneNumber: null,
+    contactPreference: "email",
+    dateOfBirth: null,
+    department: null,
+    isActive: true,
+    photoPath: null
+  };
   datePickerConfig: Partial<BsDatepickerConfig>;
   photoPath;
   previewPhoto = false;
@@ -45,7 +57,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.previewPhoto = !this.previewPhoto;
   }
 
-  saveEmployee(empForm: NgForm): void {
-    console.log(empForm.value);
+  saveEmployee(newEmployee: Employee): void {
+    console.log(newEmployee);
   }
 }

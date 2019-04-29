@@ -8,7 +8,7 @@
       class="needs-validation"
       novalidate
       #employeeForm="ngForm"
-      (ngSubmit)="employeeForm.valid && saveEmployee(employeeForm)"
+      (ngSubmit)="employeeForm.valid && saveEmployee(employee)"
     >
       <!-- FULL NAME -->
       <div class="form-group">
@@ -22,7 +22,7 @@
           [ngClass]="{
             'is-invalid': employeeForm.submitted && fullNameControl.invalid
           }"
-          [(ngModel)]="fullName"
+          [(ngModel)]="employee.name"
           placeholder="Enter employee name"
           #fullNameControl="ngModel"
         />
@@ -45,7 +45,7 @@
           class="form-control"
           id="email"
           name="email"
-          [(ngModel)]="email"
+          [(ngModel)]="employee.email"
           [ngClass]="{
             'is-invalid': employeeForm.submitted && emailControl.invalid
           }"
@@ -70,7 +70,7 @@
           class="form-control"
           id="phoneNumber"
           name="phoneNumber"
-          [(ngModel)]="phoneNumber"
+          [(ngModel)]="employee.phoneNumber"
           [ngClass]="{
             'is-invalid': employeeForm.submitted && phoneNumberControl.invalid
           }"
@@ -99,7 +99,7 @@
             name="contactPreference"
             id="emailContact"
             value="email"
-            [(ngModel)]="contactPreference"
+            [(ngModel)]="employee.contactPreference"
           />
           <label class="form-check-label" for="emailContact">Email</label>
         </div>
@@ -110,7 +110,7 @@
             name="contactPreference"
             id="phoneContact"
             value="phone"
-            [(ngModel)]="contactPreference"
+            [(ngModel)]="employee.contactPreference"
           />
           <label class="form-check-label" for="phoneContact">Phone</label>
         </div>
@@ -129,7 +129,7 @@
             required
             id="male"
             value="male"
-            [(ngModel)]="gender"
+            [(ngModel)]="employee.gender"
           />
           <label class="form-check-label" for="male">Male</label>
         </div>
@@ -140,7 +140,7 @@
             name="gender"
             id="female"
             value="female"
-            [(ngModel)]="gender"
+            [(ngModel)]="employee.gender"
           />
           <label class="form-check-label" for="female">Female</label>
         </div>
@@ -153,7 +153,7 @@
             type="checkbox"
             name="isActive"
             value="isActive"
-            [(ngModel)]="isActive"
+            [(ngModel)]="employee.isActive"
           />
           <label class="form-check-label" for="male">Is Active</label>
         </div>
@@ -165,7 +165,7 @@
           <select
             id="department"
             name="department"
-            [(ngModel)]="department"
+            [(ngModel)]="employee.department"
             class="form-control"
           >
             <option
@@ -190,7 +190,7 @@
             class="form-control"
             id="dateOfBirth"
             name="dateOfBirth"
-            [(ngModel)]="dateOfBirth"
+            [(ngModel)]="employee.dateOfBirth"
             [ngClass]="{
               'is-invalid': employeeForm.submitted && dateOfBirthControl.invalid
             }"
@@ -214,7 +214,7 @@
           class="form-control"
           id="photoPath"
           name="photoPath"
-          [(ngModel)]="photoPath"
+          [(ngModel)]="employee.photoPath"
           placeholder="Enter your photo path"
         />
       </div>
