@@ -1,3 +1,32 @@
-<p>
-  create-employee works!
-</p>
+<div class="card bg-light ml-4" style="max-width: 640px;">
+  <div class="card-header bg-primary text-white">
+    Create Employee
+  </div>
+
+  <form class="card-body">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        class="form-control"
+        name="fullName"
+        placeholder="Enter employee name"
+      />
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        email
+        id="email"
+        class="form-control"
+        name="email"
+        placeholder="Enter email"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
