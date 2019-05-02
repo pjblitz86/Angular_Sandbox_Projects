@@ -15,7 +15,10 @@ export class CreateEmployeeComponent implements OnInit {
   ngOnInit() {
     // 2ways to build reactive form: with FormGroup/FormControl or with FormBuilder (less code)
     this.employeeForm = this.fb.group({
-      fullName: ["", Validators.required],
+      fullName: [
+        "",
+        [Validators.required, Validators.minLength(2), Validators.maxLength(10)]
+      ],
       email: ["", [Validators.required, Validators.email]],
       skills: this.fb.group({
         skillName: [""],

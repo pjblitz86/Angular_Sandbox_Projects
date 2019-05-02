@@ -21,6 +21,13 @@
         <div *ngIf="f['fullName'].errors.required">
           Please enter full employee name!
         </div>
+        <div
+          *ngIf="
+            f['fullName'].errors.minlength || f['fullName'].errors.maxlength
+          "
+        >
+          Employee name must be between 2 and 10 characters!
+        </div>
       </div>
     </div>
 
