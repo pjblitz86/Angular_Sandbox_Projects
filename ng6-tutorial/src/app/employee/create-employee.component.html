@@ -28,6 +28,64 @@
         placeholder="Enter email"
       />
     </div>
+    <div class="form-group" formGroupName="skills">
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="skillName"
+            formControlName="skillName"
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Experience in Years"
+            formControlName="experienceInYears"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <div>
+          <label>Proficiency</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="beginner"
+            value="beginner"
+            formControlName="proficiency"
+          />
+          <label class="form-check-label" for="beginner">Beginner</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="intermediate"
+            value="intermediate"
+            formControlName="proficiency"
+          />
+          <label class="form-check-label" for="intermediate"
+            >Intermediate</label
+          >
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="advanced"
+            value="advanced"
+            formControlName="proficiency"
+          />
+          <label class="form-check-label" for="advanced">Advanced</label>
+        </div>
+      </div>
+    </div>
     <button type="submit" class="btn btn-primary">Save</button>
   </form>
 </div>
