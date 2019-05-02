@@ -13,7 +13,15 @@
         formControlName="fullName"
         name="fullName"
         placeholder="Enter employee name"
+        [ngClass]="{
+          'is-invalid': submitted && f.fullName.errors
+        }"
       />
+      <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
+        <div *ngIf="f['fullName'].errors.required">
+          Please enter full employee name!
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -26,7 +34,18 @@
         class="form-control"
         name="email"
         placeholder="Enter email"
+        [ngClass]="{
+          'is-invalid': submitted && f.email.errors
+        }"
       />
+      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors.required">
+          Please enter employee email!
+        </div>
+        <div *ngIf="f['email'].errors.email">
+          Please enter a valid employee email!
+        </div>
+      </div>
     </div>
     <div class="form-group" formGroupName="skills">
       <div class="row">
