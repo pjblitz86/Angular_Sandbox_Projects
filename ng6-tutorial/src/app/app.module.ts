@@ -1,4 +1,4 @@
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -9,7 +9,7 @@ import { ListEmployeeComponent } from "./employee/list-employee.component";
 
 @NgModule({
   declarations: [AppComponent, CreateEmployeeComponent, ListEmployeeComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
