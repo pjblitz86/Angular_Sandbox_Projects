@@ -26,7 +26,7 @@ export class CreateEmployeeComponent implements OnInit {
     contactPreference: "email",
     dateOfBirth: null,
     department: null,
-    isActive: true,
+    isActive: false,
     photoPath: null
   };
   datePickerConfig: Partial<BsDatepickerConfig>;
