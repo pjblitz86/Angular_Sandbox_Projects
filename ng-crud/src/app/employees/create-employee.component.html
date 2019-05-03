@@ -20,22 +20,17 @@
           id="fullName"
           name="fullName"
           [ngClass]="{
-            'is-invalid':
-              (employeeForm.submitted && fullNameControl.invalid) ||
-              fullNameControl.touched
+            'is-invalid': employeeForm.submitted && fullNameControl.invalid
           }"
           [(ngModel)]="employee.name"
           placeholder="Enter employee name"
           #fullNameControl="ngModel"
         />
         <div
-          *ngIf="
-            (employeeForm.submitted && fullNameControl.invalid) ||
-            fullNameControl.touched
-          "
+          *ngIf="employeeForm.submitted && fullNameControl.invalid"
           class="invalid-feedback"
         >
-          <div *ngIf="!!fullNameControl.errors?.required">
+          <div *ngIf="fullNameControl['errors'].required">
             Please enter full employee name!
           </div>
         </div>
@@ -53,24 +48,19 @@
           name="email"
           [(ngModel)]="employee.email"
           [ngClass]="{
-            'is-invalid':
-              (employeeForm.submitted && emailControl.invalid) ||
-              emailControl.touched
+            'is-invalid': employeeForm.submitted && emailControl.invalid
           }"
           placeholder="Enter email"
           #emailControl="ngModel"
         />
         <div
-          *ngIf="
-            (employeeForm.submitted && emailControl.invalid) ||
-            emailControl.touched
-          "
+          *ngIf="employeeForm.submitted && emailControl.invalid"
           class="invalid-feedback"
         >
-          <div *ngIf="!!emailControl.errors?.required">
+          <div *ngIf="emailControl['errors'].required">
             Please enter employee email!
           </div>
-          <div *ngIf="!!emailControl.errors?.email">
+          <div *ngIf="emailControl['errors'].email">
             Please enter a valid email!
           </div>
         </div>
@@ -95,7 +85,7 @@
           *ngIf="employeeForm.submitted && phoneNumberControl.invalid"
           class="invalid-feedback"
         >
-          <div *ngIf="!!phoneNumberControl.errors?.required">
+          <div *ngIf="phoneNumberControl['errors'].required">
             Please enter employee phone number!
           </div>
         </div>
@@ -146,6 +136,10 @@
             id="male"
             value="male"
             [(ngModel)]="employee.gender"
+            #genderControl="ngModel"
+            [ngClass]="{
+              'is-invalid': employeeForm.submitted && genderControl.invalid
+            }"
           />
           <label class="form-check-label" for="male">Male</label>
         </div>
@@ -154,24 +148,34 @@
             class="form-check-input"
             type="radio"
             name="gender"
+            required
             id="female"
             value="female"
             [(ngModel)]="employee.gender"
+            #genderControl="ngModel"
+            [ngClass]="{
+              'is-invalid': employeeForm.submitted && genderControl.invalid
+            }"
           />
           <label class="form-check-label" for="female">Female</label>
         </div>
+        <div
+          *ngIf="employeeForm.submitted && genderControl.invalid"
+          class="invalid-feedback"
+        ></div>
       </div>
       <!-- IS ACTIVE CHECKBOX -->
       <div class="form-group">
         <div class="form-check form-check-inline">
           <input
             class="form-check-input"
+            id="isActive"
             type="checkbox"
             name="isActive"
             value="isActive"
             [(ngModel)]="employee.isActive"
           />
-          <label class="form-check-label" for="male">Is Active</label>
+          <label class="form-check-label" for="isActive">Is Active</label>
         </div>
       </div>
       <!-- DEPARTMENT DROPDOWN LIST -->
