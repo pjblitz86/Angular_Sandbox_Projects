@@ -8,6 +8,7 @@ import { AppComponent } from "./app.component";
 import { ListEmployeesComponent } from "./employees/list-employees.component";
 import { CreateEmployeeComponent } from "./employees/create-employee.component";
 import { NavComponent } from "./layout/nav/nav.component";
+import { EmployeesService } from "./employees/employees.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NavComponent } from "./layout/nav/nav.component";
     FormsModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [],
+  providers: [EmployeesService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
