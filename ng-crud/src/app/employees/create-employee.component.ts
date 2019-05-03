@@ -1,8 +1,9 @@
 import { Employee } from "./../models/employee.model";
 import { Department } from "./../models/department.model";
 import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
+import { EmployeesService } from "./employees.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-create-employee",
@@ -32,7 +33,10 @@ export class CreateEmployeeComponent implements OnInit {
   datePickerConfig: Partial<BsDatepickerConfig>;
   previewPhoto = false;
 
-  constructor() {
+  constructor(
+    private _employeesService: EmployeesService,
+    private _router: Router
+  ) {
     this.datePickerConfig = Object.assign(
       {},
       {
@@ -49,7 +53,8 @@ export class CreateEmployeeComponent implements OnInit {
     this.previewPhoto = !this.previewPhoto;
   }
 
-  saveEmployee(newEmployee: Employee): void {
-    console.log(newEmployee);
+  saveEmployee(): void {
+    this._employeesService.save(this.employee);
+    this._router.navigate(["list"]);
   }
 }

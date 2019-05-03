@@ -1,8 +1,8 @@
-<div class="card-deck ml-4">
+<div class="card-group">
   <div
     class="card bg-light mb-3"
     *ngFor="let employee of employees"
-    style="width: 640px;"
+    style="min-width: 440px; max-width: 640px;"
   >
     <div class="card-header bg-primary text-white">
       {{ employee.name }}

@@ -8,7 +8,7 @@
       class="needs-validation"
       novalidate
       #employeeForm="ngForm"
-      (ngSubmit)="employeeForm.valid && saveEmployee(employee)"
+      (ngSubmit)="employeeForm.valid && saveEmployee()"
     >
       <!-- FULL NAME -->
       <div class="form-group">
@@ -272,6 +272,6 @@
 
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
-    {{ employeeForm.value | json }}
+    <!-- {{ employeeForm.value | json }} -->
   </div>
 </div>
