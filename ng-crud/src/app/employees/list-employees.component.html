@@ -8,6 +8,7 @@
     <div
       (click)="h1Variable.innerHTML = childComponent.getEmployeeAndGender()"
       (dblclick)="onDblClick(employee.id)"
+      class="pointerCursor"
     >
       <app-display-employee
         [employee]="employee"
