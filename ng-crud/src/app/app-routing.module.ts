@@ -3,9 +3,11 @@ import { CreateEmployeeComponent } from "./employees/create-employee.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ListEmployeesComponent } from "./employees/list-employees.component";
+import { EmployeeDetailsComponent } from "./employees/employee-details.component";
 
 const routes: Routes = [
   { path: "list", component: ListEmployeesComponent },
+  { path: "employees/:id", component: EmployeeDetailsComponent },
   {
     path: "create",
     component: CreateEmployeeComponent,
