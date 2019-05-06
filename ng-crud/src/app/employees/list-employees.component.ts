@@ -9,7 +9,7 @@ import { Employee } from "../models/employee.model";
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
-  dataFromChild: string;
+  dataFromChild: Employee;
 
   constructor(private _employeesService: EmployeesService) {}
 
@@ -17,7 +17,7 @@ export class ListEmployeesComponent implements OnInit {
     this.employees = this._employeesService.getEmployees();
   }
 
-  handleNotify(eventData: string) {
+  handleNotify(eventData: Employee) {
     this.dataFromChild = eventData;
   }
 }

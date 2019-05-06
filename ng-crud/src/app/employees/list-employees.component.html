@@ -1,4 +1,6 @@
-<h1>{{ dataFromChild }}</h1>
+<h1 *ngIf="dataFromChild">
+  {{ dataFromChild?.name + ", " + dataFromChild?.gender }}
+</h1>
 <div class="card-group">
   <div
     class="card bg-light mb-3"
