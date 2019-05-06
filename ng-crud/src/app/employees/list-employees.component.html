@@ -1,15 +1,15 @@
-<h1 *ngIf="dataFromChild">
-  {{ dataFromChild?.name + ", " + dataFromChild?.gender }}
-</h1>
+<h1 #h1Variable></h1>
 <div class="card-group">
   <div
     class="card bg-light mb-3"
     *ngFor="let employee of employees"
     style="min-width: 440px; max-width: 640px;"
   >
-    <app-display-employee
-      [employee]="employee"
-      (notify)="handleNotify($event)"
-    ></app-display-employee>
+    <div (click)="h1Variable.innerHTML = childComponent.getEmployeeAndGender()">
+      <app-display-employee
+        [employee]="employee"
+        #childComponent
+      ></app-display-employee>
+    </div>
   </div>
 </div>
