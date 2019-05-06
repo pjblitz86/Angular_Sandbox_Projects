@@ -6,10 +6,12 @@ import { Injectable } from "@angular/core";
 export class CreateEmployeeCanDeactivateGuardService
   implements CanDeactivate<CreateEmployeeComponent> {
   canDeactivate(component: CreateEmployeeComponent): boolean {
-    if (component.createEmployeeForm.dirty) {
+    if (
+      component.createEmployeeForm.dirty &&
+      !component.createEmployeeForm.valid
+    ) {
       return confirm("Are you sure to discard the changes?");
     }
-
     return true;
   }
 }
