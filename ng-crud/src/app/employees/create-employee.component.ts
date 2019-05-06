@@ -1,9 +1,10 @@
 import { Employee } from "./../models/employee.model";
 import { Department } from "./../models/department.model";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { EmployeesService } from "./employees.service";
 import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-create-employee",
@@ -11,6 +12,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./create-employee.component.css"]
 })
 export class CreateEmployeeComponent implements OnInit {
+  @ViewChild("employeeForm") public createEmployeeForm: NgForm;
+
   departments: Department[] = [
     { id: 1, name: "Help Desk" },
     { id: 2, name: "HR" },
