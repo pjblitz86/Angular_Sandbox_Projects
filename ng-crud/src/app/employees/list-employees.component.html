@@ -1,8 +1,17 @@
 <h1 #h1Variable></h1>
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control ml-2"
+    placeholder="Search by name"
+    style="width: 300px;"
+    [(ngModel)]="searchTerm"
+  />
+</div>
 <div class="card-group">
   <div
     class="card bg-light mb-3"
-    *ngFor="let employee of employees"
+    *ngFor="let employee of employees | employeeFilter: searchTerm"
     style="min-width: 440px; max-width: 640px;"
   >
     <div

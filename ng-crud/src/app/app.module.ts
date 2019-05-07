@@ -11,7 +11,8 @@ import { CreateEmployeeComponent } from "./employees/create-employee.component";
 import { NavComponent } from "./layout/nav/nav.component";
 import { EmployeesService } from "./employees/employees.service";
 import { DisplayEmployeeComponent } from "./employees/display-employee.component";
-import { EmployeeDetailsComponent } from './employees/employee-details.component';
+import { EmployeeDetailsComponent } from "./employees/employee-details.component";
+import { EmployeeFilterPipe } from "./employees/employee-filter.pipe";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EmployeeDetailsComponent } from './employees/employee-details.component
     CreateEmployeeComponent,
     NavComponent,
     DisplayEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    EmployeeFilterPipe
   ],
   imports: [
     BrowserModule,

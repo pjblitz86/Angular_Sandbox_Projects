@@ -10,6 +10,7 @@ import { Employee } from "../models/employee.model";
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
+  searchTerm: string;
 
   constructor(
     private _employeesService: EmployeesService,
