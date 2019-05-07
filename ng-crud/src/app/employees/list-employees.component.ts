@@ -10,7 +10,17 @@ import { Employee } from "../models/employee.model";
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[];
-  searchTerm: string;
+  private _searchTerm: string;
+  filteredEmployees: Employee[];
+
+  get searchTerm(): string {
+    return this._searchTerm;
+  }
+
+  set searchTerm(value: string) {
+    this._searchTerm = value;
+    this.filteredEmployees = this.filterEmployees(value);
+  }
 
   constructor(
     private _employeesService: EmployeesService,
@@ -19,9 +29,17 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit() {
     this.employees = this._employeesService.getEmployees();
+    this.filteredEmployees = this.employees;
   }
 
   onDblClick(employeeId: number) {
     this._router.navigate(["/employees", employeeId]);
+  }
+
+  filterEmployees(searchString: string) {
+    return this.employees.filter(
+      employee =>
+        employee.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1
+    );
   }
 }

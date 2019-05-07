@@ -11,7 +11,7 @@
 <div class="card-group">
   <div
     class="card bg-light mb-3"
-    *ngFor="let employee of employees | employeeFilter: searchTerm"
+    *ngFor="let employee of filteredEmployees"
     style="min-width: 440px; max-width: 640px;"
   >
     <div
