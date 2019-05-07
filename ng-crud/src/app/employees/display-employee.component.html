@@ -1,4 +1,7 @@
-<div class="card-header bg-primary text-white">
+<div
+  class="card-header bg-primary text-white"
+  [class.bg-success]="selectedEmployeeId === employee.id"
+>
   {{ employee.name }}
 </div>
 
