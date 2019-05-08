@@ -1,4 +1,11 @@
-import { Router, Event, NavigationStart, NavigationEnd } from "@angular/router";
+import {
+  Router,
+  Event,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError,
+  NavigationCancel
+} from "@angular/router";
 import { Component } from "@angular/core";
 
 @Component({
@@ -13,7 +20,11 @@ export class AppComponent {
       if (routerEvent instanceof NavigationStart) {
         this.showLoadingIndicator = true;
       }
-      if (routerEvent instanceof NavigationEnd) {
+      if (
+        routerEvent instanceof NavigationEnd ||
+        routerEvent instanceof NavigationCancel ||
+        routerEvent instanceof NavigationError
+      ) {
         this.showLoadingIndicator = false;
       }
     });
