@@ -1,3 +1,4 @@
+import { EmployeeListResolverService } from "./employees/employee-list-resolver.service";
 import { CreateEmployeeCanDeactivateGuardService } from "./employees/create-employee-can-deactivate-guard.service";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { FormsModule } from "@angular/forms";
@@ -28,7 +29,11 @@ import { EmployeeDetailsComponent } from "./employees/employee-details.component
     FormsModule,
     BsDatepickerModule.forRoot()
   ],
-  providers: [EmployeesService, CreateEmployeeCanDeactivateGuardService],
+  providers: [
+    EmployeesService,
+    CreateEmployeeCanDeactivateGuardService,
+    EmployeeListResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

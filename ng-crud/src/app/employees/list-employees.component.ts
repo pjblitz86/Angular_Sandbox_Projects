@@ -1,5 +1,4 @@
 import { Router, ActivatedRoute } from "@angular/router";
-import { EmployeesService } from "./employees.service";
 import { Component, OnInit } from "@angular/core";
 import { Employee } from "../models/employee.model";
 
@@ -22,23 +21,16 @@ export class ListEmployeesComponent implements OnInit {
     this.filteredEmployees = this.filterEmployees(value);
   }
 
-  constructor(
-    private _employeesService: EmployeesService,
-    private _router: Router,
-    private _route: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    this._employeesService
-      .getEmployees()
-      .subscribe(empList => (this.employees = empList));
-    this.filteredEmployees = this.employees;
+  constructor(private _router: Router, private _route: ActivatedRoute) {
+    this.employees = this._route.snapshot.data["employeeList"];
     if (this._route.snapshot.queryParamMap.has("searchTerm")) {
       this.searchTerm = this._route.snapshot.queryParamMap.get("searchTerm");
     } else {
       this.filteredEmployees = this.employees;
     }
   }
+
+  ngOnInit() {}
 
   onClick(employeeId: number) {
     this._router.navigate(["/employees", employeeId], {
