@@ -29,7 +29,9 @@ export class ListEmployeesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.employees = this._employeesService.getEmployees();
+    this._employeesService
+      .getEmployees()
+      .subscribe(empList => (this.employees = empList));
     this.filteredEmployees = this.employees;
     if (this._route.snapshot.queryParamMap.has("searchTerm")) {
       this.searchTerm = this._route.snapshot.queryParamMap.get("searchTerm");

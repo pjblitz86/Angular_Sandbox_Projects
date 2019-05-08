@@ -1,5 +1,7 @@
+import { of } from "rxjs";
 import { Employee } from "./../models/employee.model";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -44,8 +46,8 @@ export class EmployeesService {
     }
   ];
 
-  getEmployees(): Employee[] {
-    return this.listEmployees;
+  getEmployees(): Observable<Employee[]> {
+    return of(this.listEmployees);
   }
 
   getEmployee(id: number): Employee {
