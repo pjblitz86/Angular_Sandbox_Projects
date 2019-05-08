@@ -2,6 +2,7 @@ import { of } from "rxjs";
 import { Employee } from "./../models/employee.model";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { delay } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -47,7 +48,8 @@ export class EmployeesService {
   ];
 
   getEmployees(): Observable<Employee[]> {
-    return of(this.listEmployees);
+    // use delay operator from rxjs to simulate http call
+    return of(this.listEmployees).pipe(delay(1400));
   }
 
   getEmployee(id: number): Employee {
