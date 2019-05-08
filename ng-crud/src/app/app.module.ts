@@ -1,3 +1,4 @@
+import { EmployeeDetailsGuardService } from "./employees/employee-details-guard.service";
 import { EmployeeListResolverService } from "./employees/employee-list-resolver.service";
 import { CreateEmployeeCanDeactivateGuardService } from "./employees/create-employee-can-deactivate-guard.service";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
@@ -13,6 +14,7 @@ import { NavComponent } from "./layout/nav/nav.component";
 import { EmployeesService } from "./employees/employees.service";
 import { DisplayEmployeeComponent } from "./employees/display-employee.component";
 import { EmployeeDetailsComponent } from "./employees/employee-details.component";
+import { PageNotFoundComponent } from "./page-not-found.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { EmployeeDetailsComponent } from "./employees/employee-details.component
     CreateEmployeeComponent,
     NavComponent,
     DisplayEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { EmployeeDetailsComponent } from "./employees/employee-details.component
   providers: [
     EmployeesService,
     CreateEmployeeCanDeactivateGuardService,
-    EmployeeListResolverService
+    EmployeeListResolverService,
+    EmployeeDetailsGuardService
   ],
   bootstrap: [AppComponent]
 })
