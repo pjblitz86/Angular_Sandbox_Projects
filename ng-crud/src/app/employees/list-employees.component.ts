@@ -32,8 +32,10 @@ export class ListEmployeesComponent implements OnInit {
     this.filteredEmployees = this.employees;
   }
 
-  onDblClick(employeeId: number) {
-    this._router.navigate(["/employees", employeeId]);
+  onClick(employeeId: number) {
+    this._router.navigate(["/employees", employeeId], {
+      queryParams: { searchTerm: this._searchTerm, testParam: "testValue" }
+    });
   }
 
   filterEmployees(searchString: string) {

@@ -15,8 +15,10 @@
     style="min-width: 440px; max-width: 640px;"
   >
     <div
-      (click)="h1Variable.innerHTML = childComponent.getEmployeeAndGender()"
-      (dblclick)="onDblClick(employee.id)"
+      (contextmenu)="
+        h1Variable.innerHTML = childComponent.getEmployeeAndGender()
+      "
+      (click)="onClick(employee.id)"
       class="pointerCursor"
     >
       <app-display-employee
