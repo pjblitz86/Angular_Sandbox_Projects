@@ -13,6 +13,9 @@
     *ngFor="let employee of filteredEmployees"
     style="min-width: 440px; max-width: 640px;"
   >
-    <app-display-employee [employee]="employee"></app-display-employee>
+    <app-display-employee
+      [employee]="employee"
+      [searchTerm]="searchTerm"
+    ></app-display-employee>
   </div>
 </div>

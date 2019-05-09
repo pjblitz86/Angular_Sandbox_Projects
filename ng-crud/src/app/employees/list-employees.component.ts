@@ -32,12 +32,6 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit() {}
 
-  onClick(employeeId: number) {
-    this._router.navigate(["/employees", employeeId], {
-      queryParams: { searchTerm: this.searchTerm, testParam: "testValue" }
-    });
-  }
-
   filterEmployees(searchString: string) {
     return this.employees.filter(
       employee =>
