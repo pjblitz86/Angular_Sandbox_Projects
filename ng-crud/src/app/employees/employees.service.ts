@@ -56,6 +56,13 @@ export class EmployeesService {
     return this.listEmployees.find(e => e.id === id);
   }
 
+  delete(id: number) {
+    const foundEmployee = this.listEmployees.findIndex(e => e.id === id);
+    if (foundEmployee !== -1) {
+      this.listEmployees.splice(foundEmployee, 1);
+    }
+  }
+
   save(employee: Employee) {
     if (employee.id === null) {
       const maxId = this.listEmployees.reduce((e1, e2) => {

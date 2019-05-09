@@ -1,3 +1,4 @@
+import { EmployeesService } from "./employees.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnInit, Input } from "@angular/core";
 import { Employee } from "../models/employee.model";
@@ -12,7 +13,11 @@ export class DisplayEmployeeComponent implements OnInit {
   @Input() searchTerm: string;
   selectedEmployeeId: number;
 
-  constructor(private _route: ActivatedRoute, private _router: Router) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _employeesService: EmployeesService
+  ) {}
 
   ngOnInit() {
     this.selectedEmployeeId = +this._route.snapshot.paramMap.get("id");
@@ -30,5 +35,9 @@ export class DisplayEmployeeComponent implements OnInit {
 
   editEmployee() {
     this._router.navigate(["/edit", this.employee.id]);
+  }
+
+  deleteEmployee() {
+    this._employeesService.delete(this.employee.id);
   }
 }
