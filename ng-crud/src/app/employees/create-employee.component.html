@@ -242,6 +242,7 @@
       <!-- IMAGE SHOW/HIDE BUTTON -->
       <div class="form-group">
         <button
+          *ngIf="employee.photoPath !== '' && employee.photoPath !== null"
           type="button"
           (click)="togglePhotoPreview()"
           class="btn btn-primary"
@@ -257,7 +258,11 @@
           alt="no image found"
           height="200"
           width="200"
-          *ngIf="previewPhoto"
+          *ngIf="
+            previewPhoto &&
+            employee.photoPath !== '' &&
+            employee.photoPath !== null
+          "
         />
       </div>
 
