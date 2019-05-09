@@ -1,6 +1,6 @@
 import { EmployeesService } from "./employees.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Employee } from "../models/employee.model";
 
 @Component({
@@ -11,6 +11,7 @@ import { Employee } from "../models/employee.model";
 export class DisplayEmployeeComponent implements OnInit {
   @Input() employee: Employee;
   @Input() searchTerm: string;
+  @Output() notifyDelete: EventEmitter<number> = new EventEmitter<number>();
   selectedEmployeeId: number;
 
   constructor(
@@ -39,5 +40,6 @@ export class DisplayEmployeeComponent implements OnInit {
 
   deleteEmployee() {
     this._employeesService.delete(this.employee.id);
+    this.notifyDelete.emit(this.employee.id);
   }
 }
