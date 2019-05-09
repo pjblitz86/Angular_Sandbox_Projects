@@ -14,6 +14,7 @@ import { NgForm } from "@angular/forms";
 export class CreateEmployeeComponent implements OnInit {
   @ViewChild("employeeForm") public createEmployeeForm: NgForm;
 
+  cardTitle: string;
   departments: Department[] = [
     { id: 1, name: "Help Desk" },
     { id: 2, name: "HR" },
@@ -61,8 +62,11 @@ export class CreateEmployeeComponent implements OnInit {
         isActive: false,
         photoPath: null
       };
+      this.cardTitle = "Create Employee";
     } else {
-      this.employee = this._employeesService.getEmployee(id);
+      // object.assign to not auto-update data without pressing save
+      this.cardTitle = "Edit Employee";
+      this.employee = Object.assign({}, this._employeesService.getEmployee(id));
     }
   }
 
@@ -71,7 +75,9 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   saveEmployee(): void {
-    this._employeesService.save(this.employee);
+    const newEmployee: Employee = Object.assign({}, this.employee);
+    this._employeesService.save(newEmployee);
+    this.createEmployeeForm.reset();
     this._router.navigate(["list"]);
   }
 }

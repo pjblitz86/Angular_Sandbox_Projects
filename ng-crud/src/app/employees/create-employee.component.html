@@ -1,6 +1,6 @@
 <div class="card bg-light ml-4" style="max-width: 640px;">
   <div class="card-header bg-primary text-white">
-    Create Employee
+    {{ cardTitle }}
   </div>
 
   <div class="card-body">
@@ -174,18 +174,9 @@
             name="isActive"
             value="isActive"
             [(ngModel)]="employee.isActive"
-            #isActiveControl="ngModel"
-            required
-            [ngClass]="{
-              'is-invalid': employeeForm.submitted && isActiveControl.invalid
-            }"
           />
           <label class="form-check-label" for="isActive">Is Active</label>
         </div>
-        <div
-          *ngIf="employeeForm.submitted && isActiveControl.invalid"
-          class="invalid-feedback"
-        ></div>
       </div>
       <!-- DEPARTMENT DROPDOWN LIST -->
       <div class="form-group">
