@@ -6,58 +6,68 @@
 </div>
 
 <div class="row">
-  <div class="col-md-4">
-    <img [src]="employee.photoPath" class="card-img" alt="no employee image" />
+  <div class="col-md-6">
+    <img
+      [src]="employee.photoPath"
+      class="card-img"
+      id="imageEmp"
+      alt="no employee image"
+    />
   </div>
-  <div class="col-md-8">
-    <div class="card-body">
-      <div class="row card-text">
-        <div class="col-md-6">
-          Gender
-        </div>
-        <div class="col-md-6">
-          {{ employee.gender }}
-        </div>
-        <div class="col-md-6">
-          Date of Birth
-        </div>
-        <div class="col-md-6">
-          {{ employee.dateOfBirth | date }}
-        </div>
-        <div class="col-md-6">
-          Contact Preference
-        </div>
-        <div class="col-md-6">
-          {{ employee.contactPreference }}
-        </div>
-        <div class="col-md-6">
-          Phone
-        </div>
-        <div class="col-md-6">
-          {{ employee.phoneNumber }}
-        </div>
-        <div class="col-md-6">
-          Email
-        </div>
-        <div class="col-md-6">
-          {{ employee.email }}
-        </div>
-        <div class="col-md-6">
-          Department
-        </div>
-        <div class="col-md-6" [ngSwitch]="employee.department">
-          <span *ngSwitchCase="1">Help Desk</span>
-          <span *ngSwitchCase="2">HR</span>
-          <span *ngSwitchCase="3">IT</span>
-          <span *ngSwitchCase="4">Payroll</span>
-          <span *ngSwitchDefault>N/A</span>
-        </div>
-        <div class="col-md-6">
-          Is Active
-        </div>
-        <div class="col-md-6">
-          {{ employee.isActive }}
-        </div>
+  <div class="col-md-6 align-content-center">
+    <button class="btn btn-primary">View</button>
+    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-danger">Delete</button>
+  </div>
+</div>
+<div class="row">
+  <div class="card-body">
+    <div class="row card-text">
+      <div class="col-md-6">
+        Gender
+      </div>
+      <div class="col-md-6">
+        {{ employee.gender }}
+      </div>
+      <div class="col-md-6">
+        Date of Birth
+      </div>
+      <div class="col-md-6">
+        {{ employee.dateOfBirth | date }}
+      </div>
+      <div class="col-md-6">
+        Contact Preference
+      </div>
+      <div class="col-md-6">
+        {{ employee.contactPreference }}
+      </div>
+      <div class="col-md-6">
+        Phone
+      </div>
+      <div class="col-md-6">
+        {{ employee.phoneNumber }}
+      </div>
+      <div class="col-md-6">
+        Email
+      </div>
+      <div class="col-md-6">
+        {{ employee.email }}
+      </div>
+      <div class="col-md-6">
+        Department
+      </div>
+      <div class="col-md-6" [ngSwitch]="employee.department">
+        <span *ngSwitchCase="1">Help Desk</span>
+        <span *ngSwitchCase="2">HR</span>
+        <span *ngSwitchCase="3">IT</span>
+        <span *ngSwitchCase="4">Payroll</span>
+        <span *ngSwitchDefault>N/A</span>
+      </div>
+      <div class="col-md-6">
+        Is Active
+      </div>
+      <div class="col-md-6">
+        {{ employee.isActive }}
       </div>
     </div>
   </div>

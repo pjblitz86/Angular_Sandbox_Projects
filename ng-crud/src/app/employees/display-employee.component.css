@@ -1,0 +1,12 @@
+button {
+  display: block;
+  margin-top: 4px;
+  min-width: 100px;
+  align-content: left;
+}
+
+#imageEmp {
+  height: 150px;
+  width: 150px;
+  margin: 4px auto;
+}
