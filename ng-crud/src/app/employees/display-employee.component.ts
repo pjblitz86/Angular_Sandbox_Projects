@@ -13,6 +13,7 @@ export class DisplayEmployeeComponent implements OnInit {
   @Input() searchTerm: string;
   @Output() notifyDelete: EventEmitter<number> = new EventEmitter<number>();
   selectedEmployeeId: number;
+  confirmDelete = false;
 
   constructor(
     private _route: ActivatedRoute,
