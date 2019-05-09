@@ -3,7 +3,7 @@ import { Department } from "./../models/department.model";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
 import { EmployeesService } from "./employees.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
 @Component({
@@ -21,24 +21,14 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 4, name: "Payroll" },
     { id: 5, name: "Admin" }
   ];
-  employee: Employee = {
-    id: null,
-    name: null,
-    gender: null,
-    email: null,
-    phoneNumber: null,
-    contactPreference: "email",
-    dateOfBirth: null,
-    department: null,
-    isActive: false,
-    photoPath: null
-  };
+  employee: Employee;
   datePickerConfig: Partial<BsDatepickerConfig>;
   previewPhoto = false;
 
   constructor(
     private _employeesService: EmployeesService,
-    private _router: Router
+    private _router: Router,
+    private _route: ActivatedRoute
   ) {
     this.datePickerConfig = Object.assign(
       {},
@@ -50,7 +40,31 @@ export class CreateEmployeeComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._route.paramMap.subscribe(parameterMap => {
+      const id = +parameterMap.get("id");
+      this.getEmployee(id);
+    });
+  }
+
+  private getEmployee(id: number) {
+    if (id === 0) {
+      this.employee = {
+        id: null,
+        name: null,
+        gender: null,
+        email: null,
+        phoneNumber: null,
+        contactPreference: "email",
+        dateOfBirth: null,
+        department: null,
+        isActive: false,
+        photoPath: null
+      };
+    } else {
+      this.employee = this._employeesService.getEmployee(id);
+    }
+  }
 
   togglePhotoPreview(): void {
     this.previewPhoto = !this.previewPhoto;

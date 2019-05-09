@@ -15,8 +15,8 @@ export class EmployeesService {
     {
       id: 1,
       name: "Mark",
-      gender: "Male",
-      contactPreference: "Email",
+      gender: "male",
+      contactPreference: "email",
       email: "mark@pragimtech.com",
       dateOfBirth: new Date("10/25/1988"),
       department: "3",
@@ -26,8 +26,8 @@ export class EmployeesService {
     {
       id: 2,
       name: "Mary",
-      gender: "Female",
-      contactPreference: "Phone",
+      gender: "female",
+      contactPreference: "phone",
       phoneNumber: 2345978640,
       dateOfBirth: new Date("11/20/1979"),
       department: "2",
@@ -37,8 +37,8 @@ export class EmployeesService {
     {
       id: 3,
       name: "John",
-      gender: "Male",
-      contactPreference: "Phone",
+      gender: "male",
+      contactPreference: "phone",
       phoneNumber: 5432978640,
       dateOfBirth: new Date("3/25/1976"),
       department: "3",
@@ -49,7 +49,7 @@ export class EmployeesService {
 
   getEmployees(): Observable<Employee[]> {
     // use delay operator from rxjs to simulate http call
-    return of(this.listEmployees).pipe(delay(1400));
+    return of(this.listEmployees).pipe(delay(400));
   }
 
   getEmployee(id: number): Employee {
