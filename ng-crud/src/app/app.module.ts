@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { EmployeeDetailsGuardService } from "./employees/services/employee-details-guard.service";
 import { EmployeeListResolverService } from "./employees/services/employee-list-resolver.service";
 import { CreateEmployeeCanDeactivateGuardService } from "./employees/services/create-employee-can-deactivate-guard.service";
@@ -29,6 +30,7 @@ import { PageNotFoundComponent } from "./page-not-found.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     BsDatepickerModule.forRoot()
   ],

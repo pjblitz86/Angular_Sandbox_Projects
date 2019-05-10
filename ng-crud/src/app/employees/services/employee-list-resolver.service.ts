@@ -16,6 +16,7 @@ export class EmployeeListResolverService implements Resolve<Employee[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Employee[]> {
+    // resolver will auto subscribe to observable
     return this._employeeService.getEmployees();
   }
 }
