@@ -4,7 +4,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from "@angular/router";
-import { Employee } from "../models/employee.model";
+import { Employee } from "../../models/employee.model";
 import { Observable } from "rxjs";
 import { EmployeesService } from "./employees.service";
 

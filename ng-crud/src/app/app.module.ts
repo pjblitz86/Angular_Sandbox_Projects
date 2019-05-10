@@ -1,6 +1,6 @@
-import { EmployeeDetailsGuardService } from "./employees/employee-details-guard.service";
-import { EmployeeListResolverService } from "./employees/employee-list-resolver.service";
-import { CreateEmployeeCanDeactivateGuardService } from "./employees/create-employee-can-deactivate-guard.service";
+import { EmployeeDetailsGuardService } from "./employees/services/employee-details-guard.service";
+import { EmployeeListResolverService } from "./employees/services/employee-list-resolver.service";
+import { CreateEmployeeCanDeactivateGuardService } from "./employees/services/create-employee-can-deactivate-guard.service";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -11,7 +11,7 @@ import { AppComponent } from "./app.component";
 import { ListEmployeesComponent } from "./employees/list-employees.component";
 import { CreateEmployeeComponent } from "./employees/create-employee.component";
 import { NavComponent } from "./layout/nav/nav.component";
-import { EmployeesService } from "./employees/employees.service";
+import { EmployeesService } from "./employees/services/employees.service";
 import { DisplayEmployeeComponent } from "./employees/display-employee.component";
 import { EmployeeDetailsComponent } from "./employees/employee-details.component";
 import { PageNotFoundComponent } from "./page-not-found.component";

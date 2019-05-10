@@ -1,12 +1,12 @@
-import { EmployeeDetailsGuardService } from "./employees/employee-details-guard.service";
+import { EmployeeDetailsGuardService } from "./employees/services/employee-details-guard.service";
 import { PageNotFoundComponent } from "./page-not-found.component";
-import { CreateEmployeeCanDeactivateGuardService } from "./employees/create-employee-can-deactivate-guard.service";
+import { CreateEmployeeCanDeactivateGuardService } from "./employees/services/create-employee-can-deactivate-guard.service";
 import { CreateEmployeeComponent } from "./employees/create-employee.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ListEmployeesComponent } from "./employees/list-employees.component";
 import { EmployeeDetailsComponent } from "./employees/employee-details.component";
-import { EmployeeListResolverService } from "./employees/employee-list-resolver.service";
+import { EmployeeListResolverService } from "./employees/services/employee-list-resolver.service";
 
 const routes: Routes = [
   {

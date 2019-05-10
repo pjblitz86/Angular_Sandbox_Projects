@@ -1,5 +1,5 @@
 import { of } from "rxjs";
-import { Employee } from "./../models/employee.model";
+import { Employee } from "../../models/employee.model";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { delay } from "rxjs/operators";
@@ -10,7 +10,6 @@ import { delay } from "rxjs/operators";
 export class EmployeesService {
   constructor() {}
 
-  // hardcode for now, later will fetch from db
   private listEmployees: Employee[] = [
     {
       id: 1,

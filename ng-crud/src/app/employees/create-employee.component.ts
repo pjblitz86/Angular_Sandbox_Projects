@@ -2,7 +2,7 @@ import { Employee } from "./../models/employee.model";
 import { Department } from "./../models/department.model";
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { BsDatepickerConfig } from "ngx-bootstrap/datepicker";
-import { EmployeesService } from "./employees.service";
+import { EmployeesService } from "./services/employees.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { NgForm } from "@angular/forms";
 
