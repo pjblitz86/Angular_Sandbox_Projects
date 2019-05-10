@@ -33,8 +33,10 @@ export class EmployeesService {
       .pipe(catchError(this.handleError));
   }
 
-  getEmployee(id: number): Employee {
-    return this.listEmployees.find(e => e.id === id);
+  getEmployee(id: number): Observable<Employee> {
+    return this.http
+      .get<Employee>(`${this.employeesURI}/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   delete(id: number) {
@@ -45,21 +47,22 @@ export class EmployeesService {
   }
 
   save(employee: Employee): Observable<Employee> {
-    if (employee.id === null) {
-      return this.http
-        .post<Employee>(this.employeesURI, employee, {
-          headers: new HttpHeaders({
-            "Content-Type": "application/json"
-          })
+    return this.http
+      .post<Employee>(this.employeesURI, employee, {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json"
         })
-        .pipe(catchError(this.handleError));
-    }
-    // else update
-    else {
-      const foundIndex = this.listEmployees.findIndex(
-        e => e.id === employee.id
-      );
-      this.listEmployees[foundIndex] = employee;
-    }
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  update(employee: Employee): Observable<void> {
+    return this.http
+      .put<void>(`${this.employeesURI}/${employee.id}`, employee, {
+        headers: new HttpHeaders({
+          "Content-Type": "application/json"
+        })
+      })
+      .pipe(catchError(this.handleError));
   }
 }

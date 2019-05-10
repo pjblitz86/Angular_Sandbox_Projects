@@ -14,14 +14,19 @@ export class EmployeeDetailsComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _employeeService: EmployeesService,
+    private _employeesService: EmployeesService,
     private _router: Router
   ) {}
 
   ngOnInit() {
     this._route.paramMap.subscribe(params => {
       this._id = +params.get("id");
-      this.employee = this._employeeService.getEmployee(this._id);
+      this._employeesService
+        .getEmployee(this._id)
+        .subscribe(
+          employee => (this.employee = employee),
+          (err: any) => console.log(err)
+        );
     });
   }
 

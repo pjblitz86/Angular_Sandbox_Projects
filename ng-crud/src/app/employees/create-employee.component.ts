@@ -66,7 +66,12 @@ export class CreateEmployeeComponent implements OnInit {
     } else {
       // object.assign to not auto-update data without pressing save
       this.cardTitle = "Edit Employee";
-      this.employee = Object.assign({}, this._employeesService.getEmployee(id));
+      this._employeesService
+        .getEmployee(id)
+        .subscribe(
+          employee => (this.employee = employee),
+          (err: any) => console.log(err)
+        );
     }
   }
 
@@ -75,14 +80,23 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   saveEmployee(): void {
-    const newEmployee: Employee = Object.assign({}, this.employee);
-    this._employeesService.save(newEmployee).subscribe(
-      (data: Employee) => {
-        console.log(data);
-        this.createEmployeeForm.reset();
-        this._router.navigate(["list"]);
-      },
-      (error: any) => console.log(error)
-    );
+    if (this.employee.id === null) {
+      this._employeesService.save(this.employee).subscribe(
+        (data: Employee) => {
+          console.log(data);
+          this.createEmployeeForm.reset();
+          this._router.navigate(["list"]);
+        },
+        (error: any) => console.log(error)
+      );
+    } else {
+      this._employeesService.update(this.employee).subscribe(
+        () => {
+          this.createEmployeeForm.reset();
+          this._router.navigate(["list"]);
+        },
+        (error: any) => console.log(error)
+      );
+    }
   }
 }

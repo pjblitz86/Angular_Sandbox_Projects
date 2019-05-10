@@ -1,3 +1,5 @@
+import { map, catchError } from "rxjs/operators";
+import { Observable, of } from "rxjs";
 import { Router, CanActivate } from "@angular/router";
 import { EmployeesService } from "./employees.service";
 
@@ -10,16 +12,21 @@ export class EmployeeDetailsGuardService implements CanActivate {
     private _employeeService: EmployeesService,
     private _router: Router
   ) {}
-  canActivate(route: ActivatedRouteSnapshot): boolean {
-    const employeeExists = !!this._employeeService.getEmployee(
-      +route.paramMap.get("id")
+  canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
+    return this._employeeService.getEmployee(+route.paramMap.get("id")).pipe(
+      map(employee => {
+        const employeeExists = !!employee;
+        if (employeeExists) {
+          return true;
+        } else {
+          this._router.navigate(["notfound"]);
+          return false;
+        }
+      }),
+      catchError(err => {
+        console.log(err);
+        return of(false);
+      })
     );
-
-    if (employeeExists) {
-      return true;
-    } else {
-      this._router.navigate(["notfound"]);
-      return false;
-    }
   }
 }
