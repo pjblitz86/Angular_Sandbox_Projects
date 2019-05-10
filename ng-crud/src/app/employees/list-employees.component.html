@@ -7,16 +7,14 @@
     [(ngModel)]="searchTerm"
   />
 </div>
-<div class="card-group">
-  <div
-    class="card bg-light mb-3 ml-2"
-    *ngFor="let employee of filteredEmployees"
-    style="min-width: 440px; max-width: 640px;"
-  >
-    <app-display-employee
-      [employee]="employee"
-      [searchTerm]="searchTerm"
-      (notifyDelete)="onDeleteNotification($event)"
-    ></app-display-employee>
-  </div>
+<div
+  class="card bg-light mb-3 ml-2"
+  *ngFor="let employee of filteredEmployees"
+  style="min-width: 440px; max-width: 640px;"
+>
+  <app-display-employee
+    [employee]="employee"
+    [searchTerm]="searchTerm"
+    (notifyDelete)="onDeleteNotification($event)"
+  ></app-display-employee>
 </div>

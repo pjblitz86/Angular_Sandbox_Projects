@@ -14,6 +14,7 @@ export class DisplayEmployeeComponent implements OnInit {
   @Output() notifyDelete: EventEmitter<number> = new EventEmitter<number>();
   selectedEmployeeId: number;
   confirmDelete = false;
+  cardExpanded = true;
 
   constructor(
     private _route: ActivatedRoute,
