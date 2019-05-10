@@ -1,5 +1,9 @@
 import { catchError } from "rxjs/operators";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders
+} from "@angular/common/http";
 import { Employee } from "../../models/employee.model";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
@@ -40,14 +44,18 @@ export class EmployeesService {
     }
   }
 
-  save(employee: Employee) {
+  save(employee: Employee): Observable<Employee> {
     if (employee.id === null) {
-      const maxId = this.listEmployees.reduce((e1, e2) => {
-        return e1.id > e2.id ? e1 : e2;
-      }).id;
-      employee.id = maxId + 1;
-      this.listEmployees.push(employee);
-    } else {
+      return this.http
+        .post<Employee>(this.employeesURI, employee, {
+          headers: new HttpHeaders({
+            "Content-Type": "application/json"
+          })
+        })
+        .pipe(catchError(this.handleError));
+    }
+    // else update
+    else {
       const foundIndex = this.listEmployees.findIndex(
         e => e.id === employee.id
       );

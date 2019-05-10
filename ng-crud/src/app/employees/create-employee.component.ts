@@ -76,8 +76,13 @@ export class CreateEmployeeComponent implements OnInit {
 
   saveEmployee(): void {
     const newEmployee: Employee = Object.assign({}, this.employee);
-    this._employeesService.save(newEmployee);
-    this.createEmployeeForm.reset();
-    this._router.navigate(["list"]);
+    this._employeesService.save(newEmployee).subscribe(
+      (data: Employee) => {
+        console.log(data);
+        this.createEmployeeForm.reset();
+        this._router.navigate(["list"]);
+      },
+      (error: any) => console.log(error)
+    );
   }
 }
