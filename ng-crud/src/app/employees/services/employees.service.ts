@@ -14,7 +14,6 @@ import { Observable, throwError } from "rxjs";
 export class EmployeesService {
   constructor(private http: HttpClient) {}
 
-  private listEmployees: Employee[];
   private employeesURI = "http://localhost:3000/employees";
 
   private handleError(errorResponse: HttpErrorResponse) {
@@ -39,11 +38,10 @@ export class EmployeesService {
       .pipe(catchError(this.handleError));
   }
 
-  delete(id: number) {
-    const foundEmployee = this.listEmployees.findIndex(e => e.id === id);
-    if (foundEmployee !== -1) {
-      this.listEmployees.splice(foundEmployee, 1);
-    }
+  delete(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${this.employeesURI}/${id}`)
+      .pipe(catchError(this.handleError));
   }
 
   save(employee: Employee): Observable<Employee> {

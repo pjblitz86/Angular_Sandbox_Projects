@@ -32,18 +32,6 @@
       "department": "3",
       "isActive": false,
       "photoPath": "assets/images/john.png"
-    },
-    {
-      "id": 4,
-      "name": "Paulius Juknis1",
-      "gender": "male",
-      "email": "paulius.juknis@gmail1.com",
-      "phoneNumber": "444441",
-      "contactPreference": "phone",
-      "dateOfBirth": "2019-05-12T13:29:02.000Z",
-      "department": "4",
-      "isActive": true,
-      "photoPath": "assets/images/mark.png"
     }
   ]
 }
