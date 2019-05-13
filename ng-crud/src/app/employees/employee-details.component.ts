@@ -11,6 +11,7 @@ import { Employee } from "../models/employee.model";
 export class EmployeeDetailsComponent implements OnInit {
   private _id: number;
   employee: Employee;
+  employees: Employee[];
 
   constructor(
     private _route: ActivatedRoute,
@@ -28,10 +29,13 @@ export class EmployeeDetailsComponent implements OnInit {
           (err: any) => console.log(err)
         );
     });
+    this._employeesService
+      .getEmployees()
+      .subscribe(employees => (this.employees = employees));
   }
 
   viewNextEmployee() {
-    if (this._id < 3) {
+    if (this._id < this.employees.length) {
       this._id++;
     } else {
       this._id = 1;
