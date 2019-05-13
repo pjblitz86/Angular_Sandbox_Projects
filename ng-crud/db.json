@@ -2,29 +2,30 @@
   "employees": [
     {
       "id": 1,
-      "name": "Mark",
+      "name": "Kingslayer",
       "gender": "male",
       "contactPreference": "email",
-      "email": "mark@pragimtech.com",
-      "dateOfBirth": "10/25/1988",
+      "email": "jaimelannister@got.com",
+      "dateOfBirth": "2019-05-15T12:05:25.000Z",
       "department": "3",
       "isActive": true,
       "photoPath": "assets/images/mark.png"
     },
     {
       "id": 2,
-      "name": "Mary",
+      "name": "Dragon Queen",
       "gender": "female",
       "contactPreference": "phone",
       "phoneNumber": 2345978640,
       "dateOfBirth": "11/20/1979",
       "department": "2",
       "isActive": true,
-      "photoPath": "assets/images/mary.png"
+      "photoPath": "assets/images/mary.png",
+      "email": "khaleesi@gmail.com"
     },
     {
       "id": 3,
-      "name": "John",
+      "name": "John Snow",
       "gender": "male",
       "contactPreference": "phone",
       "phoneNumber": 5432978640,
@@ -35,15 +36,27 @@
     },
     {
       "id": 4,
-      "name": "Paulius Juknis",
-      "gender": "male",
-      "email": "paulius.juknis@gmail.com",
+      "name": "Cercei Lannister",
+      "gender": "female",
+      "email": "cercei@got.com",
       "phoneNumber": "44444",
       "contactPreference": "phone",
-      "dateOfBirth": "2019-05-15T06:58:33.000Z",
+      "dateOfBirth": "2019-05-08T12:42:21.000Z",
       "department": "5",
       "isActive": true,
-      "photoPath": "assets/images/mark.png"
+      "photoPath": "assets/images/mary.png"
+    },
+    {
+      "id": 5,
+      "name": "Paulius Juknis1",
+      "gender": "male",
+      "email": "paulius.juknis@gmail.com",
+      "phoneNumber": null,
+      "contactPreference": "email",
+      "dateOfBirth": "2019-05-07T12:05:55.000Z",
+      "department": "3",
+      "isActive": true,
+      "photoPath": null
     }
   ]
 }

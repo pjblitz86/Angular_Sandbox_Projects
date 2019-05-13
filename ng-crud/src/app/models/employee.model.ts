@@ -5,7 +5,7 @@ export class Employee {
   email?: string;
   phoneNumber?: string;
   contactPreference: string;
-  dateOfBirth: Date;
+  dateOfBirth: Date = new Date("DD/MM/YYYY");
   department: string;
   isActive: boolean;
   photoPath?: string;

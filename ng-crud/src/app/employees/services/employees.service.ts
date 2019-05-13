@@ -7,7 +7,6 @@ import {
 import { Employee } from "../../models/employee.model";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
-import { Department } from "src/app/models/department.model";
 
 @Injectable({
   providedIn: "root"

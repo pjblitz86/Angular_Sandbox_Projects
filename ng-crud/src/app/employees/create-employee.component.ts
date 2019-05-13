@@ -92,7 +92,6 @@ export class CreateEmployeeComponent implements OnInit {
     } else {
       this._employeesService.update(this.employee).subscribe(
         () => {
-          this.createEmployeeForm.reset();
           this._router.navigate(["list"]);
         },
         (error: any) => console.log(error)
