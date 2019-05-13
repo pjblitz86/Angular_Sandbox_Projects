@@ -2,7 +2,7 @@
   "employees": [
     {
       "id": 1,
-      "name": "Mark1",
+      "name": "Mark",
       "gender": "male",
       "contactPreference": "email",
       "email": "mark@pragimtech.com",
@@ -41,7 +41,7 @@
       "phoneNumber": "44444",
       "contactPreference": "phone",
       "dateOfBirth": "2019-05-15T06:58:33.000Z",
-      "department": "3",
+      "department": "5",
       "isActive": true,
       "photoPath": "assets/images/mark.png"
     }
